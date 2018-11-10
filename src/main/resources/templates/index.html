@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Home page</title>
+
+
+    <th:block th:insert="base :: header"></th:block>
+
+
+
+</head>
+<body>
+<div th:replace="base :: navbar"></div>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Content</th>
+                    <th>Sent By</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="text : ${messages}">
+
+
+                    <td th:text="${text.text}"></td>
+                    <td th:text="${text.user.firstname}"></td>
+                    <td th:text="${text.date}"></td>
+                    <td>
+                        <div sec:authorize="isFullyAuthenticated()">
+                            <a th:href="@{/detail/{id}(id=${text.id})}" class="btn btn-info" role="button">Details</a>
+                        </div>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <!--<h5>You have to login to add message!</h5>-->
+            <!--<div sec:authorize="isAnonymous()">-->
+            <!--<button class="btn btn-primary"><a class="text-white" href="/login">Login</a></button>-->
+            <!--</div>-->
+            <div>
+                <!--<button class="btn btn-primary"><a class="text-white" href="/listMsg">Add Message</a></button>-->
+                <button id="btn-color" class="btn btn-color" sec:authorize="!isFullyAuthenticated()"><a
+                        class="text-white" href="/login">
+                    Login</a></button>
+            </div>
+
+
+            <div class="pb-5"></div>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="base :: footer"></div>
+
+</body>
+</html>

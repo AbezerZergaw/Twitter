@@ -1,0 +1,39 @@
+.container-form {
+     margin: 100px auto 30px auto;
+     width: 80%;
+ }
+.footer{
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-clip: #efefef;
+    text-align: center;
+
+}
+
+p.normal {
+    font-style: normal;
+}
+
+p.italic {
+    font-style: italic;
+}
+
+p.oblique {
+    font-style: oblique;
+}
+
+h1 {
+    background-color: green;
+}
+
+body {
+    background-color: lightblue;
+}
+
+p {
+    background-color: yellow;
+}

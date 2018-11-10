@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+
+
+    <th:block th:insert="base :: header"></th:block>
+
+
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="base :: navbar"></div>
+
+
+<div class="jumbotron">
+    <div class="container bg-light ">
+        <div class="my-4 "></div>
+        <h2 class="text-center py-3 pl-4 pr-5">Message Details</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Content</th>
+                <th>Sent By</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="text : ${message}">
+
+                <td th:text="${text.text}"></td>
+                <td th:text="${text.sentby}"></td>
+                <td th:text="${text.date}"></td>
+                <td>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a th:href="@{/}" class="btn btn-info" role="button">Show all Message</a>
+
+
+        <a th:if="${canUpdate}" th:href="@{/update/{id}(id=${message.id})}" class="btn btn-success" role="button">Update Post</a>
+
+    </div>
+</div>
+<div th:replace="base :: footer"></div>
+</body>
+</html>
