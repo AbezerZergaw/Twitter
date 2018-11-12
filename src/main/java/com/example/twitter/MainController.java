@@ -45,8 +45,7 @@ public class MainController {
     }
 
     @PostMapping("/processform")
-    public String processRegistration(@Valid @ModelAttribute("user") User user, BindingResult result,
-                                      Model model) {
+    public String processRegistration(@Valid @ModelAttribute("user") User user, BindingResult result) {
 
         if (result.hasErrors()) {
             return "signup";
