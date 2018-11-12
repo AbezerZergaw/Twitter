@@ -31,10 +31,11 @@ p.oblique {
 h1 {
     background-color: dark;
 }
-
+/*
 body {
-    background-color: lightblue;
-}
+
+  background:url("https://res.cloudinary.com/dsudmfnrq/image/upload/v1541539048/samples/landscapes/nature-mountains.jpg")
+}*/
 
 p {
     background-color: yellow;
